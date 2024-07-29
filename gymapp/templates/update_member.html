@@ -1,0 +1,29 @@
+{% extends 'Base.html' %}
+
+{% block title %}
+  Update Member
+{% endblock %}
+
+{% block body %}
+  <div class="container mt-5">
+    <h2>Update Member Infromation</h2>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="form-group">{{ form.name.label_tag }}
+        {{ form.name }}</div>
+      <div class="form-group">{{ form.phone_no.label_tag }}
+        {{ form.phone_no }}</div>
+      <div class="form-group">{{ form.fee_amount.label_tag }}
+        {{ form.fee_amount }}</div>
+      <div class="form-group">{{ form.fee_date.label_tag }}
+        {{ form.fee_date }}</div>
+      <div class="form-group">{{ form.picture.label_tag }}
+        {{ form.picture }}</div>
+      <div class="form-group">{{ form.status.label_tag }}
+        {{ form.status }}</div>
+      <div class="form-group">{{ form.fee_status.label_tag }}
+        {{ form.fee_status }}</div>
+      <button type="submit" class="btn btn-outline-primary">Update</button>
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'Base.html' %}
+
+{% block title %}
+  Member details
+{% endblock %}
+
+{% block body %}
+  <h2>Member Detail</h2>
+
+  <div class="card" style="width: 18rem;">
+    {% if member.picture %}
+      <img src="{{ member.picture.url }}" alt="{{ member.name }}" />
+    {% endif %}
+    <div class="card-body">
+      <h5 class="card-title">{{ member.name | upper}}</h5>
+      <p class="card-text">
+        <strong>Status:</strong>{{ member.status }}
+      </p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <strong>Phone Number:</strong> {{ member.phone_no }}
+      </li>
+      <li class="list-group-item">
+        <strong>Fee Amount:</strong> {{ member.fee_amount }}
+      </li>
+      <li class="list-group-item">
+        <strong>Fee Date:</strong> {{ member.fee_date }}
+      </li>
+      <li class="list-group-item">
+        <strong>Fee Status:</strong> {{ member.fee_status }}
+      </li>
+    </ul>
+    <div class="card-body">
+      <a href="{% url 'update_member' member.id %}" type="button" class="btn btn-outline-success card-link">Update</a>
+      <a href="{% url 'delete_member' member.id %}" type="button" class="btn btn-outline-danger card-link">Delete</a>
+    </div>
+  </div>
+{% endblock %}

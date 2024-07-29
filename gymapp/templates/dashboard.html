@@ -1,0 +1,35 @@
+{% extends 'Base.html' %}
+
+{% block title %}
+  Dashboard
+{% endblock %}
+
+{% block body %}
+  <h2>Dashboard</h2>
+
+  <div class="container row col-lg-4">
+    <h2>Registered Members</h2>
+    <ul class="list-group">
+      {% for member in members %}
+        <li class="list-group-item">{{ forloop.counter }}. {{ member.name }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="container" style="margin-top: 1rem;">
+    <a href="{% url 'manage_members' %}" type="button" class="btn btn-outline-info">Manage Members</a>
+  </div>
+
+  <div class="container row">
+    <h5>Members with Due Payments</h5>
+  </div>
+
+  <div class="container col-lg-4 row">
+    <ul class="list-group list-group-flush">
+      {% for member in due_members %}
+        <li class="list-group-item">{{ forloop.counter }}. {{ member.name }} - Due since {{ member.fee_date }}</li>
+      {% endfor %}
+    </ul>
+    <h3>Generate Reports</h3>
+    <a href="{% url 'reports' %}" type="button" class="btn btn-outline-secondary">Reports</a>
+  </div>
+{% endblock %}

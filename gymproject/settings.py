@@ -33,7 +33,7 @@ MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Tempaltes
-TEMPALTE_ROOT = os.path.join(BASE_DIR, 'tempaltes')
+TEMPALTE_ROOT = os.path.join(BASE_DIR, 'templates')
 
 # Application definition
 

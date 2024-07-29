@@ -1,0 +1,22 @@
+{% extends 'Base.html' %}
+
+{% block title %}
+  Manage Members
+{% endblock %}
+
+{% block body %}
+  <div class="container row col-lg-4">
+    <h2>Member List</h2>
+    <ul class="list-group">
+      {% for m in members %}
+        <li class="list-group-item">
+          {{ forloop.counter }}. <a href="{% url 'member_details' m.id %}">{{ m.name }}</a>
+          
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="container" style="margin-top: 1rem;">
+    <a href="{% url 'add_member' %}" type="button" class="btn btn-outline-primary">Add New Member</a>
+  </div>
+{% endblock %}
